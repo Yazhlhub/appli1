@@ -1,0 +1,239 @@
+﻿@{
+    ViewBag.Title = "Li";
+    Layout = null;
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<style>
+
+    ::placeholder {
+        padding-left: 10px;
+        color: white;
+        font-size: 14px;
+    }
+
+
+    .input-group {
+        border: 1px white solid;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .form-login {
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+
+    .loginbtn {
+        font-weight: 600;
+        font-size: 16px;
+        height: 45px;
+        background-color: white;
+        color: darkblue;
+        border: none;
+        padding: 5px;
+        border-radius: 4px;
+    }
+
+    .input-group-addon {
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+        color: #555555;
+        text-align: center;
+        background-color: transparent;
+        border: 0px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+</style>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+<body style=" font-family: Montserrat; background-color: #2148C0; background-image: url('../../images/BG.png'); background-repeat: no-repeat;
+ background-attachment: fixed; background-size: 100% 100%;">
+    <div>
+        <div class="row">
+
+            <label class="switch" style="float:right; margin-right:70px">
+                <input type="checkbox" id="mode" onclick="modecheckboxclick()">
+                <span id="switchSpan" class="slider round"></span>
+            </label>
+
+        </div>
+        <div class="row">
+            <form class="form-login">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="ImageDiv" style="text-align:center;">
+
+                        <img src="~/images/Group.png" />
+                    </div>
+
+                    <div class="input-group" style="margin:25px;">
+                        <span class="input-group-addon">
+                            <img src="~/images/user.png" />
+                        </span>
+                        <input type="text"
+                               style=" border-color: white; height: 30px; border: none; background-color: transparent;color:white;" id="userNameId" placeholder="USERNAME" />
+
+                    </div>
+
+
+                    <div class="input-group" style="margin:25px;">
+                        <span class="input-group-addon">
+                            <img src="~/images/lock.png" />
+                        </span>
+
+                        <input type="password"
+                               style="border-color: white; height: 30px; border: none; background-color: transparent; color: white;" id="passwordId" placeholder="PASSWORD" />
+                    </div>
+
+                    <div class="row" style="margin:25px;">
+                        <button class="form-control loginbtn" id="loginButton"> LOGIN </button>
+                    </div>
+
+                    <div class="row" style="margin:25px;">
+                        <a style="color: white; float: right;font-size:16px; font-weight:500"> forgot password? </a>
+                    </div>
+
+                </div>
+                <div class="col-lg-3"></div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+
+    //$(document).ready(function () {
+    //    alert("ready!");
+    //});
+
+    $(document).on('click', '#loginButton', function () {
+
+        var userName = $("#userNameId").val();
+        var password = $("#passwordId").val();
+
+        if (userName.toLowerCase() == "admin" && password.toLowerCase() == "admin") {
+            alert("Successfully Logged in");
+        }
+        else {
+            alert("invalid user");
+
+        }
+
+    })
+    function modecheckboxclick() {
+        if ($("#mode").is(":checked")) {
+             setcolortoelement("black", "white", "black");
+             alert("true")
+        }
+        else {
+            setcolortoelement("#2148c0", "white", "#2148c0");
+             alert("false")
+            }
+
+        }
+
+    function setcolortoelement(bgcolor, forecolor, pagebg) {
+        $('body').css("background-color", bgcolor)
+        $("#label1").css("color", forecolor);
+        $("#label2").css("color", foreColor);
+
+    }
+    function modecheckboxclick() {
+        if ($("#mode").is(":checked")) {
+            setColorToElement("black", "white", "black");
+
+        }
+        else {
+            setColorToElement("#2148C0", "white", "#2148C0");
+
+        }
+
+    }
+
+    function setColorToElement(bgColor, foreColor, pagebg) {
+        $('body').css("background-color", pagebg)
+        $("#userNameId").css("background-color", bgColor);
+        $("#userNameId").css("color", foreColor);
+        $("#passwordId").css("background-color", bgColor);
+        $("#passwordId").css("border-color", foreColor);
+        $("#loginButton").css("color", bgColor);
+    }
+</script>
+
+
